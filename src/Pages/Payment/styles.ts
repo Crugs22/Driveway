@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MainContainer = styled.body` 
     background-color: #fff;
-    height: 100vh;
+    height: 100%;
     nav{
         display: flex;
         justify-content: space-between;
@@ -53,18 +53,22 @@ export const FormsContainer = styled.div`
 export const Heading = styled.div`
   display: flex;
   gap: 8px;
-
+  align-items: center;
+  
   div {
     span {
-      color: #403937};
+      color: #181819;
+      font: 700 .875rem/1.2 'Roboto', sans-serif;
     }
-
+    
     p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.875rem;
-    line-height: 130%;
-    font-weight: 400;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.875rem;
+      line-height: 120%;
+      font-weight: 400;
+      color: #403937;
     }
+  }
 `
 
 

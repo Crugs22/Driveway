@@ -1,4 +1,13 @@
-import styled, { } from 'styled-components'
+import styled, { css } from 'styled-components'
+import { MediaGenerator } from 'styled-media-query'
+
+export const breakpoints = {
+    iphoneSE: { query: '(max-width: 320px)' },
+    mobile: { query: '(max-width: 576px)' },
+    small: { query: '(max-width: 768px)' },
+    smallLaptop: { query: '(max-width: 1024px)' },
+    medium: { query: '(max-width: 1280px)' },
+} 
 
 export const HeaderContainer = styled.header` 
     header {
@@ -9,6 +18,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
     padding: 1.125rem 2.5rem .5rem;
+    flex: 1;
     align-items: center;
     background-color: #fff;
         h1 {
@@ -39,6 +49,8 @@ export const HeaderContainer = styled.header`
             border-top: none;
         }
     }
+
+    
  
 `
 
@@ -48,6 +60,10 @@ export const MainContainer = styled.main`
     justify-content: center;
     margin: 16rem auto;
     gap: 20rem;
+
+    @media screen and ${breakpoints?.mobile.query} {
+    padding-bottom: 10px;
+  }
 `
 
 export const TextTitleMain = styled.div` 
@@ -110,11 +126,18 @@ export const ImagesWrapper = styled.div`
     background-color: #f8f8f8;
     padding: 1rem;
     border-radius: 8px;
-        
+    
     img {
             width: 30rem;
             border-radius: 8px;
         }
+
+                
+    @media (max-width: 720px) {
+        > div {
+            flex-wrap: wrap;
+        }
+        }    
 `
 export const DescriptionCarsSelect = styled.div`
     display: flex;

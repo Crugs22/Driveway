@@ -13,6 +13,7 @@ import { Bank,
  } from '@phosphor-icons/react'
 import { TextInput } from "../../components/TextInput";
 import { Radio }  from '../../components/Radio'
+import { format } from 'date-fns'
 
 type FormInputs = {
     cardNumber:number
@@ -27,7 +28,6 @@ const newOrder = z.object({
     expiryDate: z.date(),
     
 })
-
 
 export function Payment(){
     const {
@@ -64,7 +64,7 @@ export function Payment(){
                             <AddressForm>
                                 <TextInput 
                                     type="number" 
-                                    placeholder="1234 5678 9012 3456" 
+                                    placeholder="Number Card" 
                                     containerProps={{style: { gridArea: "cardNumber" } }}
                                     maxLength={16}
                                     minLength={16}
@@ -79,7 +79,7 @@ export function Payment(){
                                 <TextInput 
                                     type="number"                                    
                                     containerProps={{style: { gridArea: "cvv" }}}
-                                    placeholder="123" 
+                                    placeholder="CVV" 
                                     maxLength={3}
                             
                                     minLength={3}
@@ -88,14 +88,14 @@ export function Payment(){
                                 <TextInput
                                 type="text"    
                                 containerProps={{style: { gridArea: "nameCard"} }}
-                                placeholder="Caio Moura"
+                                placeholder="Name On Card"
                                 {...register('nameCard')}/>
                         </AddressForm>
                     </AddresContainer>
                         <PaymentContainer>
                             <PaymentHeading>
-                                <CurrencyDollar size={22} />
-                                    <div>
+                                <CurrencyDollar color="#8047F8" size={26} />
+                                    <div> 
                                         <span>Pagamento</span>
 
                                         <p>
