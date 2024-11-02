@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.body` 
-    background-color: #fff;
-    height: 100%;
+    background-color: #e6e6e7;
+    height: 100vh;
     nav{
         display: flex;
         justify-content: space-between;
@@ -36,6 +36,19 @@ export const MainContainer = styled.body`
             border-inline: none;
             border-top: none;
             font: 600 1.125rem 'Inter', sans-serif;
+        }
+        
+        #userContainer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #register {
+            background-color: #181818;
+            color: #e6e6e7;
+            padding: .5rem .875rem;
+            border-radius: 8px;
         }
     }
 `
@@ -109,8 +122,7 @@ export const InfoContainer = styled.div`
   gap: 16px;
 
   h2 {
-    
-    color: #403937;
+    color: #8047F8;
   }
 
   > form {

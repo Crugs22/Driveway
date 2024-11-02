@@ -1,6 +1,7 @@
 import React from 'react'
 import { CheckCircle, PhoneCall } from '@phosphor-icons/react'
 import { AsideCarModel, 
+        Box, 
         DescriptionCarsSelect, 
         Footer, 
         FooterTerms, 
@@ -18,16 +19,20 @@ import { NavLink } from 'react-router-dom'
 
 export function Home() {
     return (
-        <div>
+        <Box>
             <HeaderContainer>
                 <nav>
                     <h1>Driveway</h1>
                     <ul> 
                         <li><NavLink to={'/'} title="Home">Home</NavLink></li>
                         <li><NavLink to={'/products'}>Cars</NavLink></li>
-                        <li><a href="">Locations</a></li>
+                        <li><NavLink to={'/location'}>Locations</NavLink></li>
                         <li><a href="">About</a></li>
                     </ul>
+                    <div id="userContainer">
+                        <NavLink to={'/user/login'}>Sign in</NavLink>
+                        <a href="" id="register">Sign up</a>
+                    </div>
                 </nav>
             </HeaderContainer>
                    
@@ -36,8 +41,8 @@ export function Home() {
                     <h1>Rent Your Dream Car <br />Today</h1>
                     <p>Experience the freedom of the open road with our premium car rental service. Choose from a wibe range pf vehicles to suit your needs.</p>
                 <FormContainer>
-                    <select name="city" id="city">
-                        <option value="Imperatriz">Imperatriz</option>
+                    <select name="city" id="city" >
+                    <option value="Imperatriz">Imperatriz</option>
                         <option value="São Paulo">São Paulo</option>
                         <option value="Rio de Janeiro">Rio de Janeiro</option>
                         <option value="Gramados">Gramados</option>
@@ -50,7 +55,7 @@ export function Home() {
                 </div>
             </MainContainer>
 
-            <AsideCarModel >
+            <AsideCarModel>
                 <div>
                     <h1>Featured Cars</h1>
                 </div>
@@ -115,8 +120,9 @@ export function Home() {
                                 </WhyChooseUs>
                         </section>
                 </SecondaryMainContainer>
+            </AsideCarModel>
 
-                <Footer>
+            <Footer>
                     <h1>Ready to Hit Roat?</h1>
                     <p>Book your car now and start your journey. Our team is ready to assist you with any questions.</p>
                         <div>
@@ -133,7 +139,6 @@ export function Home() {
                             </ul>
                         </div>    
                 </FooterTerms>
-            </AsideCarModel>
-    </div>
+    </Box>
     )
 }

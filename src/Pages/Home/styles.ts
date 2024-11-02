@@ -1,19 +1,41 @@
 import styled, { css } from 'styled-components'
-import { MediaGenerator } from 'styled-media-query'
 
-export const breakpoints = {
-    iphoneSE: { query: '(max-width: 320px)' },
-    mobile: { query: '(max-width: 576px)' },
-    small: { query: '(max-width: 768px)' },
-    smallLaptop: { query: '(max-width: 1024px)' },
-    medium: { query: '(max-width: 1280px)' },
-} 
-
-export const HeaderContainer = styled.header` 
-    header {
-    background-color: #fff;
+const size = {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '2560px'
 }
 
+
+  export const device = {
+    mobileS: `(min-width: ${size.mobileS})`,
+    mobileM: `(min-width: ${size.mobileM})`,
+    mobileL: `(min-width: ${size.mobileL})`,
+    tablet: `(max-width: ${size.tablet})`,
+    laptop: `(min-width: ${size.laptop})`,
+    laptopL: `(min-width: ${size.laptopL})`,
+    desktop: `(min-width: ${size.desktop})`,
+    desktopL: `(min-width: ${size.desktop})`
+  };
+
+export const Box = styled.body` 
+    width: 100%;
+   
+    @media ${device.tablet} {
+        width: 618px;
+    }
+
+  `
+
+export const HeaderContainer = styled.header` 
+    background-color: #fff;
+    display: flex;
+    width: auto;
+    height: auto;
  nav {
     display: flex;
     justify-content: space-between;
@@ -48,6 +70,19 @@ export const HeaderContainer = styled.header`
             font: 600 1.125rem 'Arial', sans-serif;
             border-top: none;
         }
+
+        #userContainer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #register {
+            background-color: #181818;
+            color: #e6e6e7;
+            padding: .5rem .875rem;
+            border-radius: 8px;
+        }
     }
 
     
@@ -55,20 +90,46 @@ export const HeaderContainer = styled.header`
 `
 
 export const MainContainer = styled.main` 
-    width: 100rem;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin: 16rem auto;
     gap: 20rem;
 
-    @media screen and ${breakpoints?.mobile.query} {
-    padding-bottom: 10px;
-  }
+    @media ${device.tablet} {
+        justify-content: center;
+        flex-direction: column;
+        gap: 10rem;
+       width: 100%;
+
+        > div {
+            img {
+                display: flex;
+                justify-content: center;
+                width: 35rem;
+            }
+        }
+    }
 `
 
 export const TextTitleMain = styled.div` 
      display: flex;
      flex-direction: column;
+
+     @media ${device.tablet} {
+        justify-content: center;
+        text-align: center;
+        font-size: 1rem;
+        margin: 0 auto;
+
+        p {
+            display: flex;
+            margin: 0 auto;
+            font-size: .5rem;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+    }
 
      h1 {
             color: #fff;
@@ -103,10 +164,11 @@ export const FormContainer = styled.form`
 
 export const AsideCarModel = styled.div`
     background-color: #f5f5f7;
+    
     > div {
         display: flex;
         justify-content: center;
-        padding-block: 10rem 0;
+        padding-block: 5rem 0;
 
         h1 {
             font: 600 3rem sans-serif;
@@ -114,37 +176,45 @@ export const AsideCarModel = styled.div`
         }
     }
 `
+
 export const SelectCarContainer = styled.div`
     display: flex;
     justify-content: center;
     gap: 2rem;
     border: 0;
     border-radius: 8px;
+    margin: 0 auto;
+    max-width: 1280px;
+
+    @media ${device.tablet} {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
 `
 
 export const ImagesWrapper = styled.div` 
     background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 1rem;
     border-radius: 8px;
+    justify-content: center;
+
     
     img {
-            width: 30rem;
+            width: 22rem;
             border-radius: 8px;
-        }
-
-                
-    @media (max-width: 720px) {
-        > div {
             flex-wrap: wrap;
         }
-        }    
 `
 export const DescriptionCarsSelect = styled.div`
     display: flex;
     gap: .5rem;
     flex-direction: column;
     align-items: center;
-
+   
     h1 {
         font: 700 1.25rem/120% 'Roboto', sans-serif;
     }
@@ -158,7 +228,10 @@ export const DescriptionCarsSelect = styled.div`
         color: #fff;
         background: #181818;
         border: 0;
-        padding: .875rem 13rem;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: .5rem;
         border-radius: 8px;
         cursor: pointer;
         transition: .1s;
@@ -172,7 +245,7 @@ export const DescriptionCarsSelect = styled.div`
 
 export const SecondaryMainContainer = styled.main` 
     width: 100%;
-    height: 30rem;
+    height: auto;
     margin-top: 10rem;
     background: #fff;
         section > div {
@@ -181,27 +254,51 @@ export const SecondaryMainContainer = styled.main`
         display: flex;
         justify-content: center;
         }
+
+        @media ${device.tablet} {
+        display: flex;
+        justify-content: center;
+    }        
+       
 `
-export const WhyChooseUs = styled.div` 
-    display: flex;
-   
+export const WhyChooseUs = styled.section` 
+    display: grid;
+    max-width: 1280px;
+    margin: 0 auto;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 1fr);
+
+    @media ${device.tablet} {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }        
 `
-export const InformartionWhyCHooseUS = styled.div`
+export const InformartionWhyCHooseUS = styled.section`
     margin-left: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    padding-block: 1rem;
         h1 {
-            font: 700 1.5rem/1.2 sans-serif;
+            font: 700 1.5rem/1.4 sans-serif;
+            display: flex;
+            align-items: center;
+            gap: .15rem;
         }
 
         p {
-            font: 400 1rem/1 sans-serif;
+            font: 400 1rem/1.2 'Inter', sans-serif;
+            color: gray;
+            display: flex;
+            text-align: center;
         }
 `
 
 export const Footer = styled.footer`
     display: flex;
+    background-color: #f1f1f1;
     flex-direction: column;
     justify-content: center;
-    margin-block: 5rem;
     padding-block: 5rem;
     gap: .5rem;
     align-items: center;

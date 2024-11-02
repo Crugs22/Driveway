@@ -13,7 +13,6 @@ import { Bank,
  } from '@phosphor-icons/react'
 import { TextInput } from "../../components/TextInput";
 import { Radio }  from '../../components/Radio'
-import { format } from 'date-fns'
 
 type FormInputs = {
     cardNumber:number
@@ -52,6 +51,10 @@ export function Payment(){
                     <li><a href="">Locations</a></li>
                     <li><a href="">About</a></li>
                 </ul>
+                    <div id="userContainer">
+                            <NavLink to={'/user/login'}>Sign in</NavLink>
+                            <a href="" id="register">Sign up</a>
+                    </div>
             </nav>
 
             <section>

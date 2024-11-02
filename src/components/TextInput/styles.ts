@@ -35,6 +35,10 @@ export const Container = styled.label`
         outline: none;
     }
 
+    input[type=number]::-webkit-inner-spin-button{
+        appearance: none;
+    }
+
     &::placeholder{
         color: #8D8686;
     }
