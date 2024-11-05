@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.label` 
-    padding: 16px;
-    width: 100%;
+    padding: 1rem;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -34,4 +33,10 @@ export const Container = styled.label`
   svg {
     color: #8047F8;
   }
+
+  @media (max-width: 768px) {
+      padding: 1rem .5rem;
+      line-height: normal;
+      font: 700 .5rem/1.2 'Roboto', sans-serif;
+    }
 `

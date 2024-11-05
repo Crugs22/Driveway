@@ -15,14 +15,17 @@ export const HeaderContainer = styled.header`
     display: flex;
     width: auto;
     height: auto;
- nav {
+`
+
+export const NavBar = styled.nav`
     display: flex;
     justify-content: space-between;
     padding: 1.125rem 2.5rem .5rem;
     flex: 1;
     align-items: center;
     background-color: #fff;
-        h1 {
+        
+    h1 {
             font: 800 2.5rem 'italianno', sans-serif;
         }
 
@@ -62,21 +65,36 @@ export const HeaderContainer = styled.header`
             padding: .5rem .875rem;
             border-radius: 8px;
         }
-    }
+
+        button {
+            display: none;
+        }
 
     @media (max-width: 768px ) {
-        nav {
+        padding-inline: .1125rem;
 
-            padding-inline: .1125rem;
+        button {
+            display: block;
+            background: transparent;
+            border: 0;
+            padding-right: 1rem;
+        }
 
-            ul {
-                li {
-                    display: none;
+        ul {
+            li {
+                display: none;
+
+                &.open {
+                    display: block;
                 }
             }
         }
+
+        a {
+            display: none;
+        }
+        
     }
- 
 `
 
 export const MainContainer = styled.main` 
@@ -88,15 +106,16 @@ export const MainContainer = styled.main`
 
     @media (max-width: 768px) {
         justify-content: center;
+        margin: 5rem auto 0;
         flex-direction: column;
-        gap: 10rem;
-       width: 100%;
+        width: 100%;
+        gap: 5rem;
 
         > div {
             img {
                 display: flex;
-                justify-content: center;
-                width: 35rem;
+                margin:  auto;
+                width: 100%;
             }
         }
     }
@@ -105,25 +124,6 @@ export const MainContainer = styled.main`
 export const TextTitleMain = styled.div` 
      display: flex;
      flex-direction: column;
-
-     @media (max-width: 768px) {
-        justify-content: center;
-        text-align: center;
-        margin: 0 auto;
-        width: 400px;
-
-        h1 {
-            font: 700 1.5rem/1.6 'Inter', sans-serif;
-        }
-
-        p {
-            display: flex;
-            margin: 0 auto;
-            font: 400 .5rem/1.2 'Inter', sans-serif;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-    }
 
      h1 {
             color: #fff;
@@ -135,6 +135,27 @@ export const TextTitleMain = styled.div`
         font: 400 1.25rem sans-serif;
         width:  37.5rem;
     }
+
+     @media (max-width: 768px) {
+        justify-content: center;
+        text-align: center;
+        width: 400px;
+        margin: 0 auto;
+
+        h1 {
+            font: 700 2rem/1.6 'Inter', sans-serif;
+        }
+
+        p {
+            display: flex;
+            font: 400 1rem/1.2 'Inter', sans-serif;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            padding-block: .5rem 1rem; 
+        }
+    }
+
 `
 export const FormContainer = styled.form` 
     select {
@@ -272,6 +293,7 @@ export const WhyChooseUs = styled.section`
         display: flex;
         flex-direction: column;
         margin: 0 auto;
+        padding-bottom: 5rem;
     }        
 `
 export const InformartionWhyCHooseUS = styled.section`
@@ -381,5 +403,9 @@ export const FooterTerms = styled.footer`
         text-decoration: none;
         font: 400 .875rem 'Inter', sans-serif;
         color: rgb(87, 87, 87);
+    }
+
+    @media (max-width: 768px ) {
+        text-align: center;
     }
 `

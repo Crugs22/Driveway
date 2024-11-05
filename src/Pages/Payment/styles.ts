@@ -3,65 +3,27 @@ import styled from "styled-components";
 export const MainContainer = styled.body` 
     background-color: #e6e6e7;
     height: 100vh;
-    nav{
-        display: flex;
-        justify-content: space-between;
-        padding: 1.125rem 2.5rem .5rem;
-        align-items: center;
-        background-color: #fff;
-        
-        h1 {
-            font: 800 2.5rem 'italianno', sans-serif;
-        }
-        
-        ul {
-            display: flex;
-            gap: 1.5rem;
-        }
 
-        li {
-            list-style: none;
-        }
+    
+          @media (max-width: 768px) {
+            overflow: hidden;
+      }
 
-        a {
-            font-weight: 600;
-            color: #000000;
-            text-decoration: none;
-            transition: .2s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        a:hover {
-            border: 1px solid #000;
-            border-inline: none;
-            border-top: none;
-            font: 600 1.125rem 'Inter', sans-serif;
-        }
-        
-        #userContainer {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        #register {
-            background-color: #181818;
-            color: #e6e6e7;
-            padding: .5rem .875rem;
-            border-radius: 8px;
-        }
-    }
 `
+
 export const FormsContainer = styled.div`
-    padding: 3.5rem;
+  padding: 3.5rem;
   border-radius: 6px;
   background-color: #F3F2F2;
   width: 100%;
-  min-width: 640px;
-
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    width: 100%;
+    }
 `
 export const Heading = styled.div`
   display: flex;
@@ -99,7 +61,12 @@ export const PaymentOptions = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+
+    @media (max-width: 768px) {
+      
+    }
   }
+
 `
 
 export const PaymentErrorMessage = styled.p`
@@ -114,6 +81,7 @@ export const Container = styled.main`
   padding: 40px 20px;
   margin: 0 auto;
   gap: 32px;
+
 `
 
 export const InfoContainer = styled.div`
@@ -130,18 +98,29 @@ export const InfoContainer = styled.div`
     flex-direction: column;
     gap: 32px;
   }
+  
+  @media (max-width: 768px) {
+      width: 100%;
+    }
+  
 `
 
-export const AddresContainer = styled(FormsContainer)``
+export const AddresContainer = styled(FormsContainer)`
+`
 
 export const AddressForm = styled.div`
   display: grid;
   grid-template-areas:
     'cardNumber cardNumber cardNumber'
-    'date cvv cvv'
+    'date . cvv'
     'nameCard nameCard nameCard';
   grid-template-columns: 260px 1fr 60px;
   grid-gap: 16px 12px;
+
+  @media (max-width: 768px) {
+      grid-gap: 16px 0;
+    }
+  
 `
 
 export const CheckOutButton = styled.button` 

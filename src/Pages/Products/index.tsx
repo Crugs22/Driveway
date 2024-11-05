@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, InputHTMLAttributes } from "react";
 import {  Body, FilterContainer, InfoRentNow, MainContainer, ProductsContainer, TextAllCars } from "./styles";
 import { CurrencyDollar, Funnel } from "@phosphor-icons/react";
-import { HeaderContainer } from "../Home/styles";
+import { HeaderContainer, NavBar } from "../Home/styles";
 import { NavLink } from "react-router-dom";
 import { TextInput }   from '../../components/TextInput'
 
@@ -15,7 +15,7 @@ export function Products(){
     return(
     <Body>
         <HeaderContainer>
-            <nav>
+            <NavBar>
                 <h1>Driveway</h1>
                    <ul> 
                         <li><NavLink to={'/'} title="Home">Home</NavLink></li>
@@ -26,7 +26,7 @@ export function Products(){
                         <NavLink to={'/user/login'}>Sign in</NavLink>
                         <NavLink to={'/user/register'} id="register">Sign up</NavLink>
                     </div>
-                </nav>
+                </NavBar>
             </HeaderContainer>
         <MainContainer>
             <div>

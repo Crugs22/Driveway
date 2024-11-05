@@ -13,6 +13,7 @@ import { Bank,
  } from '@phosphor-icons/react'
 import { TextInput } from "../../components/TextInput";
 import { Radio }  from '../../components/Radio'
+import { NavBar } from "../Home/styles";
 
 type FormInputs = {
     cardNumber:number
@@ -43,7 +44,7 @@ export function Payment(){
 
     return(
         <MainContainer>
-            <nav>
+            <NavBar>
                 <h1>Driveway</h1>
                 <ul> 
                     <li><NavLink to={'/'} title="Home">Home</NavLink></li>
@@ -54,14 +55,14 @@ export function Payment(){
                             <NavLink to={'/user/login'}>Sign in</NavLink>
                             <a href="" id="register">Sign up</a>
                     </div>
-            </nav>
+            </NavBar>
 
             <section>
                <Container>
                     <InfoContainer>
                         <h2>Complete seu pedido</h2>
 
-                        <form id="order">
+                    <form id="order">
                         <AddresContainer>
                             <AddressForm>
                                 <TextInput 
@@ -113,7 +114,7 @@ export function Payment(){
                         {...register('paymentMethod')}
                         value="credit"
                         >
-                        <CreditCard size={16} />
+                        <CreditCard size={20} />
                         <span>Cartão de crédito</span>
                         </Radio>
 
@@ -122,7 +123,7 @@ export function Payment(){
                         {...register('paymentMethod')}
                         value="debit"
                         >
-                        <Bank size={16} />
+                        <Bank size={20} />
                         <span>Cartão de débito</span>
                         </Radio>
 
@@ -131,7 +132,7 @@ export function Payment(){
                         {...register('paymentMethod')}
                         value="cash"
                         >
-                        <Money size={16} />
+                        <Money size={20} />
                         <span>Dinheiro</span>
                         </Radio>
                     </div>

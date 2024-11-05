@@ -1,5 +1,5 @@
-import React from 'react'
-import { CheckCircle, PhoneCall } from '@phosphor-icons/react'
+import React, { useState } from 'react'
+import { CheckCircle, List, PhoneCall } from '@phosphor-icons/react'
 import { AsideCarModel, 
         Box, 
         DescriptionCarsSelect, 
@@ -9,6 +9,7 @@ import { AsideCarModel,
         HeaderContainer, 
         ImagesWrapper, 
         InformartionWhyCHooseUS, 
+        NavBar, 
         SecondaryMainContainer, 
         SelectCarContainer, 
         TextTitleMain, 
@@ -16,23 +17,26 @@ import { AsideCarModel,
 import { MainContainer } from './styles'
 import { NavLink } from 'react-router-dom'
 
-
 export function Home() {
     return (
         <Box>
             <HeaderContainer>
-                <nav>
+                <NavBar onClick={() => this.toggleNavBar()}>
                     <h1>Driveway</h1>
                     <ul> 
                         <li><NavLink to={'/'} title="Home">Home</NavLink></li>
                         <li><NavLink to={'/products'}>Cars</NavLink></li>
                         <li><a href="">About</a></li>
                     </ul>
+
+
                     <div id="userContainer">
                         <NavLink to={'/user/login'}>Sign in</NavLink>
                         <NavLink to={'/user/register'} id="register">Sign up</NavLink>
                     </div>
-                </nav>
+                    
+                    <button><List size={24}/></button>
+                </NavBar>
             </HeaderContainer>
                    
             <MainContainer>
@@ -49,6 +53,7 @@ export function Home() {
                         <button type="submit">Search city</button>
                     </FormContainer>
                 </TextTitleMain>
+               
                 <div>
                     <img src="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
                 </div>

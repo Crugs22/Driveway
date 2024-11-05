@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
     background: #efefef;
     height: 100vh;
-    max-width: 960px;
+    max-width: 1280px;
     margin: 0 auto;
     overflow-x: hidden;
 
@@ -101,7 +101,6 @@ export const ProductsContainer = styled.div`
 
         img {
             margin: 1rem auto;
-            
         }
     }
 `
