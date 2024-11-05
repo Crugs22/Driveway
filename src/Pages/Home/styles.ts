@@ -1,34 +1,13 @@
 import styled, { css } from 'styled-components'
 
-const size = {
-    mobileS: '320px',
-    mobileM: '375px',
-    mobileL: '425px',
-    tablet: '768px',
-    laptop: '1024px',
-    laptopL: '1440px',
-    desktop: '2560px'
-}
 
-
-  export const device = {
-    mobileS: `(max-width: ${size.mobileS})`,
-    mobileM: `(max-width: ${size.mobileM})`,
-    mobileL: `(max-width: ${size.mobileL})`,
-    tablet: `(max-width: ${size.tablet})`,
-    laptop: `(max-width: ${size.laptop})`,
-    laptopL: `(max-width: ${size.laptopL})`,
-    desktop: `(max-width: ${size.desktop})`,
-    desktopL: `(max-width: ${size.desktop})`
-  };
 
 export const Box = styled.body` 
     width: 100%;
-   
-    @media ${device.tablet} {
-        width: 618px;
-    }
 
+    @media (max-width: 768px ) {
+        overflow: hidden;
+    }
   `
 
 export const HeaderContainer = styled.header` 
@@ -85,7 +64,18 @@ export const HeaderContainer = styled.header`
         }
     }
 
-    
+    @media (max-width: 768px ) {
+        nav {
+
+            padding-inline: .1125rem;
+
+            ul {
+                li {
+                    display: none;
+                }
+            }
+        }
+    }
  
 `
 
@@ -96,7 +86,7 @@ export const MainContainer = styled.main`
     margin: 16rem auto;
     gap: 20rem;
 
-    @media ${device.tablet} {
+    @media (max-width: 768px) {
         justify-content: center;
         flex-direction: column;
         gap: 10rem;
@@ -116,16 +106,20 @@ export const TextTitleMain = styled.div`
      display: flex;
      flex-direction: column;
 
-     @media ${device.tablet} {
+     @media (max-width: 768px) {
         justify-content: center;
         text-align: center;
-        font-size: 1rem;
         margin: 0 auto;
+        width: 400px;
+
+        h1 {
+            font: 700 1.5rem/1.6 'Inter', sans-serif;
+        }
 
         p {
             display: flex;
             margin: 0 auto;
-            font-size: .5rem;
+            font: 400 .5rem/1.2 'Inter', sans-serif;
             flex-wrap: wrap;
             text-align: center;
         }
@@ -186,7 +180,7 @@ export const SelectCarContainer = styled.div`
     margin: 0 auto;
     max-width: 1280px;
 
-    @media ${device.tablet} {
+    @media (max-width: 768px) {
         display: flex;
         flex-wrap: wrap;
     }
@@ -255,7 +249,11 @@ export const SecondaryMainContainer = styled.main`
         justify-content: center;
         }
 
-        @media ${device.tablet} {
+        @media (max-width: 768px) {
+            h1 {
+                font: 700 2.5rem/1.5 'Roboto', sans-serif;
+            }
+
         display: flex;
         justify-content: center;
     }        
@@ -270,7 +268,7 @@ export const WhyChooseUs = styled.section`
     grid-auto-flow: column;
     grid-template-rows: repeat(2, 1fr);
 
-    @media ${device.tablet} {
+    @media (max-width: 768px) {
         display: flex;
         flex-direction: column;
         margin: 0 auto;
@@ -293,6 +291,17 @@ export const InformartionWhyCHooseUS = styled.section`
             color: gray;
             display: flex;
             text-align: center;
+        }
+
+        @media (max-width: 768px ) {
+
+            h1 {
+                font: 700 1.5rem/1.4 'Inter', sans-serif;
+            }
+
+            margin-left: 0;
+            text-align: center;
+            align-items: center;
         }
 `
 
@@ -335,6 +344,10 @@ export const Footer = styled.footer`
         a:hover{
             opacity: 90%;
             }
+    }
+
+    @media (max-width: 768px ) {
+        text-align: center;
     }
 `
 export const FooterTerms = styled.footer` 

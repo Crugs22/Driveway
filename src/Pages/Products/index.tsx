@@ -20,9 +20,12 @@ export function Products(){
                    <ul> 
                         <li><NavLink to={'/'} title="Home">Home</NavLink></li>
                         <li><NavLink to={'/products'}>Cars</NavLink></li>
-                        <li><a href="">Locations</a></li>
                         <li><a href="">About</a></li>
                     </ul>
+                    <div id="userContainer">
+                        <NavLink to={'/user/login'}>Sign in</NavLink>
+                        <NavLink to={'/user/register'} id="register">Sign up</NavLink>
+                    </div>
                 </nav>
             </HeaderContainer>
         <MainContainer>

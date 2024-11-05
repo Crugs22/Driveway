@@ -6,16 +6,26 @@ export const MainContainer = styled.div`
     height: 100vh;
     max-width: 960px;
     margin: 0 auto;
+    overflow-x: hidden;
 
     section {
         display: grid;
         grid-template-areas: 
         'Filter Products Products';
+
+        @media (max-width: 768px ) {
+            grid-template-areas: none;
+            place-content: center;
     }
+}
 `
 
 export const Body = styled.body`
     background: #efefef;
+
+    @media (max-width: 768px ) {
+        overflow: hidden;
+    }
 `
 
 export const TextAllCars = styled.div`
@@ -84,6 +94,16 @@ export const ProductsContainer = styled.div`
     img {
         border-radius: 8px;
     }
+
+    @media (max-width: 768px ) {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            margin: 1rem auto;
+            
+        }
+    }
 `
 
 export const InfoRentNow = styled.div` 
@@ -121,5 +141,8 @@ export const InfoRentNow = styled.div`
         display: flex;
         justify-content: center;
         
+        &:last-child {
+            margin-bottom: 2rem;
+        }
     }
 `

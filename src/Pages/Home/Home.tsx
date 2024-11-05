@@ -26,12 +26,11 @@ export function Home() {
                     <ul> 
                         <li><NavLink to={'/'} title="Home">Home</NavLink></li>
                         <li><NavLink to={'/products'}>Cars</NavLink></li>
-                        <li><NavLink to={'/location'}>Locations</NavLink></li>
                         <li><a href="">About</a></li>
                     </ul>
                     <div id="userContainer">
                         <NavLink to={'/user/login'}>Sign in</NavLink>
-                        <a href="" id="register">Sign up</a>
+                        <NavLink to={'/user/register'} id="register">Sign up</NavLink>
                     </div>
                 </nav>
             </HeaderContainer>

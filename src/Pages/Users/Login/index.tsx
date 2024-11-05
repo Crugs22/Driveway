@@ -3,8 +3,18 @@ import { ButtonContainer, CheckBoxContainer, ForgotPasswordContainer, HeaderCont
 import { NavLink } from "react-router-dom";
 import { TextInput } from "../../../components/TextInput"
 import { ArrowArcLeft, ArrowRight } from "@phosphor-icons/react";
+import { useState } from "react";
 
 export function Login(){
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        console.log("Envio")
+    }
+
     return(
         <MainContainer>
             <HeaderContainer>
@@ -13,7 +23,6 @@ export function Login(){
                         <ul> 
                             <li><NavLink to={'/'} title="Home">Home</NavLink></li>
                             <li><NavLink to={'/products'}>Cars</NavLink></li>
-                            <li><NavLink to={'/location'}>Locations</NavLink></li>
                             <li><a href="">About</a></li>
                         </ul>
                 </nav>
@@ -22,11 +31,19 @@ export function Login(){
             
                 <LoginContainer>
                     <h1>Login to Your Account</h1>
-                        <form action="">
+                        <form onSubmit={handleSubmit}>
                             <label htmlFor="email">E-mail</label>
-                            <TextInput type="email" id="email" placeholder="you@example.com"/>
+                            <TextInput 
+                            type="email"
+                            id="email" 
+                            placeholder="you@example.com"
+                            onChange={(e) => setUsername(e.target.value)}/>
+                            
                             <label htmlFor="password">Password</label>
-                            <TextInput type="password" id="password"/>
+                            <TextInput 
+                            type="password" 
+                            id="password"
+                            onChange={(e) => setPassword(e.target.value)}/>
 
                             <CheckBoxContainer>
                                 <input type="checkbox" /><span>Remember me</span>
@@ -42,7 +59,7 @@ export function Login(){
                             
                             <SignUpContainer>
                                 <p> Don't have an account</p>
-                                <a href="">Sign up now <ArrowRight/></a>
+                                <NavLink to={'/user/register'}>Sign up now <ArrowRight/></NavLink>
                             </SignUpContainer>
                         </ForgotPasswordContainer>
                 

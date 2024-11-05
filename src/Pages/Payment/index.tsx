@@ -48,7 +48,6 @@ export function Payment(){
                 <ul> 
                     <li><NavLink to={'/'} title="Home">Home</NavLink></li>
                     <li><NavLink to={'/products'}>Cars</NavLink></li>
-                    <li><a href="">Locations</a></li>
                     <li><a href="">About</a></li>
                 </ul>
                     <div id="userContainer">

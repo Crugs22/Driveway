@@ -1,48 +1,10 @@
-import styled from "styled-components";
-
-const size = {
-    mobileS: '320px',
-    mobileM: '375px',
-    mobileL: '425px',
-    tablet: '768px',
-    laptop: '1024px',
-    laptopL: '1440px',
-    desktop: '2560px'
-}
-
-export const device = {
-    mobileS: `(max-width: ${size.mobileS})`,
-    mobileM: `(max-width: ${size.mobileM})`,
-    mobileL: `(max-width: ${size.mobileL})`,
-    tablet: `(max-width: ${size.tablet})`,
-    laptop: `(max-width: ${size.laptop})`,
-    laptopL: `(max-width: ${size.laptopL})`,
-    desktop: `(max-width: ${size.desktop})`,
-    desktopL: `(max-width: ${size.desktop})`
-  };
-
+import styled, { css } from "styled-components";
 
 export const HeaderContainer = styled.header`
-      background-color: #fff;
-        display: flex;
-        width: 100vw;
+    background: #fff;
+    display: flex;
 
-        @media ${device.tablet} {
-        nav{
-            display: flex;
-            justify-content: center;
-            
-        h1 {
-            margin: 0 auto;
-        }
-
-        ul {
-            li{
-                display: none;
-            }
-        }
-      }
-    }
+    
   
  nav {
     display: flex;
@@ -51,6 +13,11 @@ export const HeaderContainer = styled.header`
     flex: 1;
     align-items: center;
     background-color: #fff;
+    max-width: 1280px;
+    margin: 0 auto;
+
+   
+
         h1 {
             font: 800 2.5rem 'italianno', sans-serif;
         }
@@ -79,12 +46,30 @@ export const HeaderContainer = styled.header`
             border-top: none;
         }
     }
+
+    @media (max-width: 768px) {
+           nav {
+            display: flex;
+            justify-content: center;
+
+            ul{
+                li {
+                    display: none;
+                }
+            }
+           }
+        }
+        
 `
 
-export const MainContainer = styled.main` 
+export const MainContainer = styled.div` 
     background-color: #e6e6e7;
     height: 100vh;
-    width: auto;
+
+    @media (max-width: 768px) {
+        width: 100vw;
+        overflow: auto;
+    }
 `
 
 export const LoginContainer = styled.div` 
@@ -124,6 +109,22 @@ export const LoginContainer = styled.div`
             padding-inline: 1rem 13rem;
         }
     }
+
+    @media (max-width: 768px) {
+        width: 300px;
+        margin-top: 2rem;
+        form {
+            font-size: .1125rem;
+            width: 280px;
+            overflow: hidden;
+
+            input {
+               padding-inline: 1rem 6rem;
+            }
+        }
+        
+    }
+    
 `
 
 export const CheckBoxContainer = styled.div`
@@ -147,6 +148,12 @@ export const ButtonContainer = styled.div`
 
         &:hover{
             opacity: 90%;
+        }
+
+        @media (max-width: 768px) {
+            display: flex;
+            justify-content: center;
+            padding: .5rem 7rem;
         }
     }
 `
