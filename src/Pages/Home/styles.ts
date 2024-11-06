@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components'
 
-
-
 export const Box = styled.body` 
     width: 100%;
 
@@ -17,40 +15,34 @@ export const HeaderContainer = styled.header`
     height: auto;
 `
 
-export const NavBar = styled.nav`
+export const NavBar = styled.div``
+
+export const ButtonMenuToggle = styled.button`
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+        background-color: transparent;
+        border: 0;
+        padding-right: 1rem;
+    }
+`
+
+export const DesktopBar = styled.nav`
     display: flex;
     justify-content: space-between;
     padding: 1.125rem 2.5rem .5rem;
     flex: 1;
     align-items: center;
     background-color: #fff;
+
+    ul {
+        display: flex;
+        gap: 12px;
+    }
         
     h1 {
             font: 800 2.5rem 'italianno', sans-serif;
-        }
-
-        ul {
-            display: flex;
-            gap: 1rem;
-        }
-
-        li {
-            font-family: sans-serif;
-            list-style: none;
-        }
-
-        a {
-            font-weight: 600;
-            color: #000000;
-            text-decoration: none;
-            transition: .2s;
-        }
-
-        a:hover {
-            border: 1px solid #000;
-            border-inline: none;
-            font: 600 1.125rem 'Arial', sans-serif;
-            border-top: none;
         }
 
         #userContainer {
@@ -93,9 +85,30 @@ export const NavBar = styled.nav`
         a {
             display: none;
         }
-        
     }
 `
+
+export const NavItem = styled.ul`
+        li {
+            font-family: sans-serif;
+            list-style: none;
+        }
+
+        a {
+            font-weight: 600;
+            color: #000000;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        a:hover {
+            border: 1px solid #000;
+            border-inline: none;
+            font: 600 1.125rem 'Arial', sans-serif;
+            border-top: none;
+        }
+`
+
 
 export const MainContainer = styled.main` 
     width: 100%;

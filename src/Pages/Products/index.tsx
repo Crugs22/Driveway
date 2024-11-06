@@ -1,7 +1,7 @@
-import React, { HTMLAttributes, InputHTMLAttributes } from "react";
-import {  Body, FilterContainer, InfoRentNow, MainContainer, ProductsContainer, TextAllCars } from "./styles";
+import React, { HTMLAttributes, InputHTMLAttributes, useState } from "react";
+import {  Body, FilterContainer, InfoRentNow, MainContainer, ProductsContainer, MobileNavToggle, TextAllCars, MobileNav } from "./styles";
 import { CurrencyDollar, Funnel } from "@phosphor-icons/react";
-import { HeaderContainer, NavBar } from "../Home/styles";
+import { DesktopBar, HeaderContainer, NavItem } from "../Home/styles";
 import { NavLink } from "react-router-dom";
 import { TextInput }   from '../../components/TextInput'
 
@@ -12,21 +12,33 @@ type Props = HTMLAttributes<HTMLDivElement> & {
 
 
 export function Products(){
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+    
     return(
-    <Body>
-        <HeaderContainer>
-            <NavBar>
+        <Body>
+         <HeaderContainer>
+         <MobileNavToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
+                {isMobileNavOpen ? 'Close' : 'Menu'}
+        </MobileNavToggle>
+            <DesktopBar>
                 <h1>Driveway</h1>
                    <ul> 
-                        <li><NavLink to={'/'} title="Home">Home</NavLink></li>
-                        <li><NavLink to={'/products'}>Cars</NavLink></li>
-                        <li><a href="">About</a></li>
+                        <NavItem><NavLink to={'/'} title="Home">Home</NavLink></NavItem>
+                        <NavItem><NavLink to={'/products'}>Cars</NavLink></NavItem>
+                        <NavItem><a href="">About</a></NavItem>
                     </ul>
                     <div id="userContainer">
                         <NavLink to={'/user/login'}>Sign in</NavLink>
                         <NavLink to={'/user/register'} id="register">Sign up</NavLink>
                     </div>
-                </NavBar>
+                </DesktopBar>
+                <MobileNav style={{ display: isMobileNavOpen ? 'flex' : 'none' }}>
+                    <NavItem><a href="/">Home</a></NavItem>
+                    <NavItem><a href="/">About</a></NavItem>
+                    <NavItem><a href="/">Services</a></NavItem>
+                    <NavItem><a href="/">Contact</a></NavItem>
+                </MobileNav>
+
             </HeaderContainer>
         <MainContainer>
             <div>

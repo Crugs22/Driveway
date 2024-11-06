@@ -28,6 +28,35 @@ export const Body = styled.body`
     }
 `
 
+export const MobileNavToggle = styled.button`
+  display: block;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #bada55;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const MobileNav = styled.ul`
+  display: none;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: 767px) {
+    display: flex;
+  }
+`;
+
 export const TextAllCars = styled.div`
     display: flex;
     justify-content: center;

@@ -1,42 +1,54 @@
 import React, { useState } from 'react'
-import { CheckCircle, List, PhoneCall } from '@phosphor-icons/react'
+import { CheckCircle, List, PhoneCall, X } from '@phosphor-icons/react'
 import { AsideCarModel, 
         Box, 
+        ButtonMenuToggle, 
         DescriptionCarsSelect, 
+        DesktopBar, 
         Footer, 
         FooterTerms, 
         FormContainer, 
         HeaderContainer, 
         ImagesWrapper, 
         InformartionWhyCHooseUS, 
-        NavBar, 
+        NavItem, 
         SecondaryMainContainer, 
         SelectCarContainer, 
         TextTitleMain, 
         WhyChooseUs } from './styles'
 import { MainContainer } from './styles'
 import { NavLink } from 'react-router-dom'
+import { MobileNav, MobileNavToggle } from '../Products/styles'
 
 export function Home() {
+        const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
     return (
         <Box>
             <HeaderContainer>
-                <NavBar onClick={() => this.toggleNavBar()}>
-                    <h1>Driveway</h1>
-                    <ul> 
-                        <li><NavLink to={'/'} title="Home">Home</NavLink></li>
-                        <li><NavLink to={'/products'}>Cars</NavLink></li>
-                        <li><a href="">About</a></li>
+            <MobileNavToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
+                {isMobileNavOpen ? 'Close' : 'Menu'}
+            </MobileNavToggle>
+            <DesktopBar>
+                <h1>Driveway</h1>
+                   <ul> 
+                        <NavItem><NavLink to={'/'} title="Home">Home</NavLink></NavItem>
+                        <NavItem><NavLink to={'/products'}>Cars</NavLink></NavItem>
+                        <NavItem><a href="">About</a></NavItem>
                     </ul>
-
-
                     <div id="userContainer">
                         <NavLink to={'/user/login'}>Sign in</NavLink>
                         <NavLink to={'/user/register'} id="register">Sign up</NavLink>
                     </div>
-                    
-                    <button><List size={24}/></button>
-                </NavBar>
+                </DesktopBar>
+                <MobileNav style={{ display: isMobileNavOpen ? 'flex' : 'none' }}>
+                    <NavItem><a href="/">Home</a></NavItem>
+                    <NavItem><a href="/">About</a></NavItem>
+                    <NavItem><a href="/">Services</a></NavItem>
+                    <NavItem><a href="/">Contact</a></NavItem>
+                </MobileNav>
+                <ButtonMenuToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
+                    {isMobileNavOpen ? <X size={24}/> :  <List size={24}/> }
+                </ButtonMenuToggle>
             </HeaderContainer>
                    
             <MainContainer>
