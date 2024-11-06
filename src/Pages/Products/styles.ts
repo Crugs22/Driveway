@@ -20,6 +20,8 @@ export const MainContainer = styled.div`
 }
 `
 
+export const MobileNavToggle = styled.div``
+
 export const Body = styled.body`
     background: #efefef;
 
@@ -27,24 +29,6 @@ export const Body = styled.body`
         overflow: hidden;
     }
 `
-
-export const MobileNavToggle = styled.button`
-  display: block;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: #bada55;
-  }
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
 
 export const MobileNav = styled.ul`
   display: none;
@@ -54,6 +38,9 @@ export const MobileNav = styled.ul`
 
   @media (max-width: 767px) {
     display: flex;
+    align-items: center;
+    padding-right: auto;
+    gap: 1rem;
   }
 `;
 

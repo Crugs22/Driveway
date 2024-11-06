@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, InputHTMLAttributes, useState } from "react";
 import {  Body, FilterContainer, InfoRentNow, MainContainer, ProductsContainer, MobileNavToggle, TextAllCars, MobileNav } from "./styles";
-import { CurrencyDollar, Funnel } from "@phosphor-icons/react";
-import { DesktopBar, HeaderContainer, NavItem } from "../Home/styles";
+import { CurrencyDollar, Funnel, List, X } from "@phosphor-icons/react";
+import { ButtonMenuToggle, DesktopBar, HeaderContainer, NavItem } from "../Home/styles";
 import { NavLink } from "react-router-dom";
 import { TextInput }   from '../../components/TextInput'
 
@@ -17,10 +17,7 @@ export function Products(){
     return(
         <Body>
          <HeaderContainer>
-         <MobileNavToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
-                {isMobileNavOpen ? 'Close' : 'Menu'}
-        </MobileNavToggle>
-            <DesktopBar>
+         <DesktopBar>
                 <h1>Driveway</h1>
                    <ul> 
                         <NavItem><NavLink to={'/'} title="Home">Home</NavLink></NavItem>
@@ -33,12 +30,14 @@ export function Products(){
                     </div>
                 </DesktopBar>
                 <MobileNav style={{ display: isMobileNavOpen ? 'flex' : 'none' }}>
-                    <NavItem><a href="/">Home</a></NavItem>
+                    <NavItem><NavLink to={'/'}>Home</NavLink></NavItem>
+                    <NavItem><NavLink to={'/products'}>Products</NavLink></NavItem>
                     <NavItem><a href="/">About</a></NavItem>
-                    <NavItem><a href="/">Services</a></NavItem>
-                    <NavItem><a href="/">Contact</a></NavItem>
                 </MobileNav>
 
+                <ButtonMenuToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
+                        {isMobileNavOpen ? <X size={24}/> :  <List size={24}/> }
+                    </ButtonMenuToggle>
             </HeaderContainer>
         <MainContainer>
             <div>

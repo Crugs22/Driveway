@@ -13,6 +13,10 @@ export const HeaderContainer = styled.header`
     display: flex;
     width: auto;
     height: auto;
+
+    @media (max-width: 768px) {
+        justify-content: space-between;
+    }
 `
 
 export const NavBar = styled.div``
@@ -54,12 +58,19 @@ export const DesktopBar = styled.nav`
         #register {
             background-color: #181818;
             color: #e6e6e7;
+            font-weight: 400;
             padding: .5rem .875rem;
             border-radius: 8px;
         }
 
         button {
             display: none;
+        }
+
+        a {
+            font: 550 1.1125rem/1.2  'Roboto';
+            text-decoration: none;
+            color: #181818;
         }
 
     @media (max-width: 768px ) {
@@ -72,16 +83,6 @@ export const DesktopBar = styled.nav`
             padding-right: 1rem;
         }
 
-        ul {
-            li {
-                display: none;
-
-                &.open {
-                    display: block;
-                }
-            }
-        }
-
         a {
             display: none;
         }
@@ -89,6 +90,7 @@ export const DesktopBar = styled.nav`
 `
 
 export const NavItem = styled.ul`
+
         li {
             font-family: sans-serif;
             list-style: none;
@@ -313,7 +315,7 @@ export const InformartionWhyCHooseUS = styled.section`
     margin-left: 2.5rem;
     display: flex;
     flex-direction: column;
-    padding-block: 1rem;
+    padding-block: 1rem 0;
         h1 {
             font: 700 1.5rem/1.4 sans-serif;
             display: flex;

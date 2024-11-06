@@ -18,16 +18,13 @@ import { AsideCarModel,
         WhyChooseUs } from './styles'
 import { MainContainer } from './styles'
 import { NavLink } from 'react-router-dom'
-import { MobileNav, MobileNavToggle } from '../Products/styles'
+import { MobileNav } from '../Products/styles'
 
 export function Home() {
         const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
     return (
         <Box>
-            <HeaderContainer>
-            <MobileNavToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
-                {isMobileNavOpen ? 'Close' : 'Menu'}
-            </MobileNavToggle>
+        <HeaderContainer>
             <DesktopBar>
                 <h1>Driveway</h1>
                    <ul> 
@@ -41,15 +38,15 @@ export function Home() {
                     </div>
                 </DesktopBar>
                 <MobileNav style={{ display: isMobileNavOpen ? 'flex' : 'none' }}>
-                    <NavItem><a href="/">Home</a></NavItem>
+                    <NavItem><NavLink to={'/'}>Home</NavLink></NavItem>
+                    <NavItem><NavLink to={'/products'}>Products</NavLink></NavItem>
                     <NavItem><a href="/">About</a></NavItem>
-                    <NavItem><a href="/">Services</a></NavItem>
-                    <NavItem><a href="/">Contact</a></NavItem>
                 </MobileNav>
+
                 <ButtonMenuToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
-                    {isMobileNavOpen ? <X size={24}/> :  <List size={24}/> }
-                </ButtonMenuToggle>
-            </HeaderContainer>
+                        {isMobileNavOpen ? <X size={24}/> :  <List size={24}/> }
+                    </ButtonMenuToggle>
+         </HeaderContainer>
                    
             <MainContainer>
                 <TextTitleMain>

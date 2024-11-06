@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from 'react-hook-form'
 import { Fragment } from 'react'
 import { AddresContainer, AddressForm, CheckOutButton, Container, InfoContainer, MainContainer, PaymentContainer, PaymentErrorMessage, PaymentHeading, PaymentOptions } from "./styles";
@@ -8,12 +8,15 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Bank,
         CreditCard,
         CurrencyDollar,
+        List,
         Money,
         Trash,
+        X,
  } from '@phosphor-icons/react'
 import { TextInput } from "../../components/TextInput";
 import { Radio }  from '../../components/Radio'
-import { NavBar } from "../Home/styles";
+import { ButtonMenuToggle, DesktopBar, HeaderContainer, NavBar, NavItem } from "../Home/styles";
+import { MobileNav } from "../Products/styles";
 
 type FormInputs = {
     cardNumber:number
@@ -40,22 +43,34 @@ export function Payment(){
     })
 
     const selectedPaymentMethod = watch('paymentMethod')
-
+    
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
     return(
         <MainContainer>
-            <NavBar>
+              <HeaderContainer>
+            <DesktopBar>
                 <h1>Driveway</h1>
-                <ul> 
-                    <li><NavLink to={'/'} title="Home">Home</NavLink></li>
-                    <li><NavLink to={'/products'}>Cars</NavLink></li>
-                    <li><a href="">About</a></li>
-                </ul>
+                   <ul> 
+                        <NavItem><NavLink to={'/'} title="Home">Home</NavLink></NavItem>
+                        <NavItem><NavLink to={'/products'}>Cars</NavLink></NavItem>
+                        <NavItem><a href="">About</a></NavItem>
+                    </ul>
                     <div id="userContainer">
-                            <NavLink to={'/user/login'}>Sign in</NavLink>
-                            <a href="" id="register">Sign up</a>
+                        <NavLink to={'/user/login'}>Sign in</NavLink>
+                        <NavLink to={'/user/register'} id="register">Sign up</NavLink>
                     </div>
-            </NavBar>
+                </DesktopBar>
+                <MobileNav style={{ display: isMobileNavOpen ? 'flex' : 'none' }}>
+                    <NavItem><NavLink to={'/'}>Home</NavLink></NavItem>
+                    <NavItem><NavLink to={'/products'}>Products</NavLink></NavItem>
+                    <NavItem><a href="/">About</a></NavItem>
+                </MobileNav>
+
+                <ButtonMenuToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
+                        {isMobileNavOpen ? <X size={24}/> :  <List size={24}/> }
+                    </ButtonMenuToggle>
+         </HeaderContainer>
 
             <section>
                <Container>
