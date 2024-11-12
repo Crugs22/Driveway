@@ -4,15 +4,14 @@ import { HeaderContainer } from "../Login/styles";
 import { NavLink } from "react-router-dom";
 import { TextInput } from '../../../components/TextInput'
 import { ArrowRight } from "@phosphor-icons/react";
-import { useForm } from 'react-hook-form'
 
 type InputsRegister = {
     firstName: string,
     lastName: string,
-
 }
 
 export function Register() {
+    
     return (
         <BoxContainer>
                 <HeaderContainer> 

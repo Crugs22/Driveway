@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { BaseSyntheticEvent, useState } from "react";
 import { useForm } from 'react-hook-form'
 import { Fragment } from 'react'
 import { AddresContainer, AddressForm, CheckOutButton, Container, InfoContainer, MainContainer, PaymentContainer, PaymentErrorMessage, PaymentHeading, PaymentOptions } from "./styles";
@@ -28,7 +28,7 @@ type FormInputs = {
 }
 
 const newOrder = z.object({
-    cardNumber: z.string().min(13).max(16),
+    cardNumber: z.number(),
     expiryDate: z.date(),
     
 })
@@ -43,9 +43,19 @@ export function Payment() {
         resolver: zodResolver(newOrder)
     })
 
+    const handlePayment = (event: BaseSyntheticEvent) => {
+        event.preventDefault()
+        console.log(event)
+
+        window.alert('Pagamento efetuado com sucesso!')
+    }
+
+
     const selectedPaymentMethod = watch('paymentMethod')
     
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+    
 
     return(
         <MainContainer>
@@ -78,22 +88,19 @@ export function Payment() {
                     <InfoContainer>
                         <h2>Complete seu pedido</h2>
 
-                    <form >
+                    <form id="form" >
                         <AddresContainer>
                             <AddressForm>
                                 <TextInput 
                                     type="number" 
                                     placeholder="Number Card" 
                                     containerProps={{style: { gridArea: "cardNumber" } }}
-                                    maxLength={16}
-                                    minLength={13}
                                     {...register('cardNumber', {required:true ,valueAsNumber: true })}/>
                                     {errors.cardNumber && <p>Este campo é obrigátorio</p>}
                                
                                 <TextInput 
                                     type="month"
                                     containerProps={{style: { gridArea: "date" } }}
-                                    placeholder="MM/YY" 
                                     {...register('date', {required:true, valueAsNumber: true })}/>
                                     {errors.date && <p>Este campo é obrigátorio</p>}
                                
@@ -161,7 +168,7 @@ export function Payment() {
                         </PaymentErrorMessage>
                     ) : null}
                 </PaymentOptions>
-                        <CheckOutButton type="submit" form="order">
+                        <CheckOutButton type="submit" onClick={handlePayment} >
                             Confirmar pedido
                         </CheckOutButton>
                             </PaymentContainer>
