@@ -14,6 +14,7 @@ import { Bank,
         X,
  } from '@phosphor-icons/react'
 import { TextInput } from "../../components/TextInput";
+import { DifferenceInCalendarMonthsOptions } from 'date-fns'
 import { Radio }  from '../../components/Radio'
 import { ButtonMenuToggle, DesktopBar, HeaderContainer, NavBar, NavItem } from "../Home/styles";
 import { MobileNav } from "../Products/styles";
@@ -32,7 +33,7 @@ const newOrder = z.object({
     
 })
 
-export function Payment(){
+export function Payment() {
     const {
         register,
         handleSubmit,
@@ -77,7 +78,7 @@ export function Payment(){
                     <InfoContainer>
                         <h2>Complete seu pedido</h2>
 
-                    <form id="order">
+                    <form >
                         <AddresContainer>
                             <AddressForm>
                                 <TextInput 
@@ -85,29 +86,31 @@ export function Payment(){
                                     placeholder="Number Card" 
                                     containerProps={{style: { gridArea: "cardNumber" } }}
                                     maxLength={16}
-                                    minLength={16}
-                                    {...register('cardNumber', {valueAsNumber: true })}/>
+                                    minLength={13}
+                                    {...register('cardNumber', {required:true ,valueAsNumber: true })}/>
+                                    {errors.cardNumber && <p>Este campo é obrigátorio</p>}
                                
                                 <TextInput 
-                                    type="date"
+                                    type="month"
                                     containerProps={{style: { gridArea: "date" } }}
                                     placeholder="MM/YY" 
-                                    {...register('date', { valueAsNumber: true })}/>
+                                    {...register('date', {required:true, valueAsNumber: true })}/>
+                                    {errors.date && <p>Este campo é obrigátorio</p>}
                                
                                 <TextInput 
                                     type="number"                                    
                                     containerProps={{style: { gridArea: "cvv" }}}
                                     placeholder="CVV" 
-                                    maxLength={3}
-                            
-                                    minLength={3}
-                                    {...register('cvv', {valueAsNumber:  true })}/>  
+                                    {...register('cvv', {required:true, maxLength: 3,
+                                        minLength: 3, valueAsNumber:  true })}/> 
+                                    {errors.cvv && <p>Este campo é obrigátorio</p>} 
                                 
                                 <TextInput
                                 type="text"    
                                 containerProps={{style: { gridArea: "nameCard"} }}
                                 placeholder="Name On Card"
-                                {...register('nameCard')}/>
+                                {...register('nameCard', {required: true})}/>
+                                {errors.nameCard && <p>Este campo é obrigátorio</p>} 
                         </AddressForm>
                     </AddresContainer>
                         <PaymentContainer>

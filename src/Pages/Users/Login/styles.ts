@@ -13,9 +13,7 @@ export const HeaderContainer = styled.header`
     flex: 1;
     align-items: center;
     background-color: #fff;
-    max-width: 1280px;
     margin: 0 auto;
-
    
 
         h1 {
@@ -107,6 +105,10 @@ export const LoginContainer = styled.div`
         input {
             padding-block: .75rem;
             padding-inline: 1rem 13rem;
+        }
+        
+        span {
+            color: salmon;
         }
     }
 
