@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 export const Box = styled.body` 
     width: 100%;
+    background-color: #000;
 
     @media (max-width: 768px ) {
         overflow: hidden;
@@ -115,6 +116,7 @@ export const NavItem = styled.ul`
 export const MainContainer = styled.main` 
     width: 100%;
     display: flex;
+    background-color: #000;
     justify-content: center;
     margin: 16rem auto;
     gap: 20rem;

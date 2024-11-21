@@ -30,7 +30,8 @@ type FormInputs = {
 const newOrder = z.object({
     cardNumber: z.number(),
     expiryDate: z.date(),
-    
+    cvv: z.number(),
+    nameCard: z.string(),
 })
 
 export function Payment() {
@@ -43,13 +44,12 @@ export function Payment() {
         resolver: zodResolver(newOrder)
     })
 
-    const handlePayment = (event: BaseSyntheticEvent) => {
-        event.preventDefault()
-        console.log(event)
-
-        window.alert('Pagamento efetuado com sucesso!')
-    }
-
+   const handlePayment = () => {
+   if (selectedPaymentMethod === 'cash') {
+    window.alert('Compra efetuada com sucesso!')
+   }
+   event?.preventDefault()
+   }
 
     const selectedPaymentMethod = watch('paymentMethod')
     
@@ -95,29 +95,26 @@ export function Payment() {
                                     type="number" 
                                     placeholder="Number Card" 
                                     containerProps={{style: { gridArea: "cardNumber" } }}
-                                    {...register('cardNumber', {required:true ,valueAsNumber: true })}/>
-                                    {errors.cardNumber && <p>Este campo é obrigátorio</p>}
+                                    required/>
                                
                                 <TextInput 
                                     type="month"
                                     containerProps={{style: { gridArea: "date" } }}
-                                    {...register('date', {required:true, valueAsNumber: true })}/>
-                                    {errors.date && <p>Este campo é obrigátorio</p>}
+                                    required/>
+                                    
                                
                                 <TextInput 
                                     type="number"                                    
                                     containerProps={{style: { gridArea: "cvv" }}}
                                     placeholder="CVV" 
-                                    {...register('cvv', {required:true, maxLength: 3,
-                                        minLength: 3, valueAsNumber:  true })}/> 
-                                    {errors.cvv && <p>Este campo é obrigátorio</p>} 
+                                    required/> 
+                                    
                                 
                                 <TextInput
                                 type="text"    
                                 containerProps={{style: { gridArea: "nameCard"} }}
                                 placeholder="Name On Card"
-                                {...register('nameCard', {required: true})}/>
-                                {errors.nameCard && <p>Este campo é obrigátorio</p>} 
+                                required/>
                         </AddressForm>
                     </AddresContainer>
                         <PaymentContainer>
@@ -168,7 +165,7 @@ export function Payment() {
                         </PaymentErrorMessage>
                     ) : null}
                 </PaymentOptions>
-                        <CheckOutButton type="submit" onClick={handlePayment} >
+                        <CheckOutButton type="submit" onClick={handlePayment}>
                             Confirmar pedido
                         </CheckOutButton>
                             </PaymentContainer>
