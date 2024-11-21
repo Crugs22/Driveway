@@ -5,6 +5,7 @@ import { Payment } from './Pages/Payment'
 import { Products } from './Pages/Products'
 import { Login } from './Pages/Users/Login'
 import { Register } from './Pages/Users/Register'
+import { About } from './Pages/About'
 
 
 export function Router(){
@@ -15,6 +16,7 @@ export function Router(){
             <Route path="/products" element={<Products />} />
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/register" element={<Register />} />
+            <Route path="/About" element={<About />} />
         </Routes>
     )
 } 

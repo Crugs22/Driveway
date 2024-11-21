@@ -24,29 +24,29 @@ export function Home() {
         const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
     return (
         <Box>
-        <HeaderContainer>
-            <DesktopBar>
-                <h1>Driveway</h1>
-                   <ul> 
-                        <NavItem><NavLink to={'/'} title="Home">Home</NavLink></NavItem>
-                        <NavItem><NavLink to={'/products'}>Cars</NavLink></NavItem>
-                        <NavItem><a href="">About</a></NavItem>
-                    </ul>
-                    <div id="userContainer">
-                        <NavLink to={'/user/login'}>Sign in</NavLink>
-                        <NavLink to={'/user/register'} id="register">Sign up</NavLink>
-                    </div>
-                </DesktopBar>
-                <MobileNav style={{ display: isMobileNavOpen ? 'flex' : 'none' }}>
-                    <NavItem><NavLink to={'/'}>Home</NavLink></NavItem>
-                    <NavItem><NavLink to={'/products'}>Products</NavLink></NavItem>
-                    <NavItem><a href="/">About</a></NavItem>
-                </MobileNav>
+            <HeaderContainer>
+                <DesktopBar>
+                    <h1>Driveway</h1>
+                    <ul> 
+                            <NavItem><NavLink to={'/'} title="Home">Home</NavLink></NavItem>
+                            <NavItem><NavLink to={'/products'}>Cars</NavLink></NavItem>
+                            <NavItem><NavLink to={'/About'}>About</NavLink></NavItem>
+                        </ul>
+                        <div id="userContainer">
+                            <NavLink to={'/user/login'}>Sign in</NavLink>
+                            <NavLink to={'/user/register'} id="register">Sign up</NavLink>
+                        </div>
+                    </DesktopBar>
+                    <MobileNav style={{ display: isMobileNavOpen ? 'flex' : 'none' }}>
+                        <NavItem><NavLink to={'/'}>Home</NavLink></NavItem>
+                        <NavItem><NavLink to={'/products'}>Products</NavLink></NavItem>
+                        <NavItem><a href="/">About</a></NavItem>
+                    </MobileNav>
 
-                <ButtonMenuToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
-                        {isMobileNavOpen ? <X size={24}/> :  <List size={24}/> }
-                    </ButtonMenuToggle>
-         </HeaderContainer>
+                    <ButtonMenuToggle onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
+                            {isMobileNavOpen ? <X size={24}/> :  <List size={24}/> }
+                        </ButtonMenuToggle>
+            </HeaderContainer>
                    
             <MainContainer>
                 <TextTitleMain>
