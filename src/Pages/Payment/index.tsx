@@ -44,12 +44,13 @@ export function Payment() {
         resolver: zodResolver(newOrder)
     })
 
-   const handlePayment = () => {
+   const handlePayment = ( event?: BaseSyntheticEvent) => {
    if (selectedPaymentMethod === 'cash') {
-    window.alert('Compra efetuada com sucesso!')
-   }
-   event?.preventDefault()
-   }
+        alert('Pagamento realizado com sucesso')
+    } else {
+        alert('Pagamento realizado com sucesso')
+    }
+    }
 
     const selectedPaymentMethod = watch('paymentMethod')
     
